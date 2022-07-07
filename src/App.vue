@@ -6,14 +6,22 @@
 
 <script>
 import * as monaco from "monaco-editor";
-import {readingsSuggestions,nonTriggeredSuggestions,moduleFunctionSuggestions,moduleMetaFunctionSuggestions,assetFunctionSuggestions} from './constants';
+import {
+  readingsSuggestions,
+  nonTriggeredSuggestions,
+  moduleFunctionSuggestions,
+  moduleMetaFunctionSuggestions,
+  assetFunctionSuggestions,
+} from "./constants";
 let editor;
+let hoverEditor;
 export default {
   name: "App",
   mounted() {
     const el = this.$refs.editor;
     // registering language
     monaco.languages.register({ id: "facilioScript" });
+   
     monaco.languages.setMonarchTokensProvider("facilioScript", {
       tokenizer: {
         root: [
@@ -24,27 +32,26 @@ export default {
         ],
       },
     });
- 
- 
-    editor =monaco.languages.registerCompletionItemProvider("facilioScript", {
+
+    editor = monaco.languages.registerCompletionItemProvider("facilioScript", {
       triggerCharacters: ["."],
       provideCompletionItems: (model, position) => {
-        var suggestions = [];
-        var last_chars = model.getValueInRange({
+        let suggestions = [];
+        let last_chars = model.getValueInRange({
           startLineNumber: position.lineNumber,
           startColumn: 0,
           endLineNumber: position.lineNumber,
           endColumn: position.column - 1,
         });
-        var words = last_chars.replace("\t", "").split(" ");
+        let words = last_chars.replace("\t", "").split(" ");
         let activeWord = words[words.length - 1];
         if (activeWord == "Module(moduleName)") {
           suggestions.push(...moduleFunctionSuggestions());
         } else if (activeWord === `NameSpace('readings')`) {
           suggestions.push(...readingsSuggestions());
-        }else if (activeWord === `NameSpace('module')`) {
+        } else if (activeWord === `NameSpace('module')`) {
           suggestions.push(...moduleMetaFunctionSuggestions());
-        }else if (activeWord === `NameSpace('asset')`) {
+        } else if (activeWord === `NameSpace('asset')`) {
           suggestions.push(...assetFunctionSuggestions());
         }
         if (suggestions.length === 0) {
@@ -53,17 +60,41 @@ export default {
           return { suggestions };
         }
       },
-
     });
+
+    hoverEditor=monaco.languages.registerHoverProvider("facilioScript", {
+      provideHover: (model, position) => {
+        let currWord = model.getWordAtPosition(position).word;
+      
+        if (currWord === "add") {
+          return {
+            contents: [
+              { value: "**(method) Module(moduleName).add(list|record)**" },
+              {
+                value:
+                  "\n The add function creates a new record with given values in the specified module \n",
+              },
+               {
+                value:
+                  "\n @param **`Map`** or **`List`** - record \n",
+              },
+            ],
+          };
+        }
+      },
+    });
+
+   
 
     this.editor = monaco.editor.create(el, {
       value: `facilioScript`,
       language: "facilioScript",
     });
   },
-  unmounted(){
+  unmounted() {
     editor.dispose();
-  }
+    hoverEditor.dispose();
+  },
 };
 </script>
 
