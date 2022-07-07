@@ -1,32 +1,70 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <div ref="editor" style="height: 1100px; width: 1100px"></div>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import * as monaco from "monaco-editor";
+import {readingsSuggestions,nonTriggeredSuggestions,moduleFunctionSuggestions,moduleMetaFunctionSuggestions,assetFunctionSuggestions} from './constants';
+let editor;
+export default {
+  name: "App",
+  mounted() {
+    const el = this.$refs.editor;
+    // registering language
+    monaco.languages.register({ id: "facilioScript" });
+    monaco.languages.setMonarchTokensProvider("facilioScript", {
+      tokenizer: {
+        root: [
+          [/\[error.*/, "custom-error"],
+          [/\[notice.*/, "custom-notice"],
+          [/\[info.*/, "custom-info"],
+          [/\[[a-zA-Z 0-9:]+\]/, "custom-date"],
+        ],
+      },
+    });
+ 
+ 
+    editor =monaco.languages.registerCompletionItemProvider("facilioScript", {
+      triggerCharacters: ["."],
+      provideCompletionItems: (model, position) => {
+        var suggestions = [];
+        var last_chars = model.getValueInRange({
+          startLineNumber: position.lineNumber,
+          startColumn: 0,
+          endLineNumber: position.lineNumber,
+          endColumn: position.column - 1,
+        });
+        var words = last_chars.replace("\t", "").split(" ");
+        let activeWord = words[words.length - 1];
+        if (activeWord == "Module(moduleName)") {
+          suggestions.push(...moduleFunctionSuggestions());
+        } else if (activeWord === `NameSpace('readings')`) {
+          suggestions.push(...readingsSuggestions());
+        }else if (activeWord === `NameSpace('module')`) {
+          suggestions.push(...moduleMetaFunctionSuggestions());
+        }else if (activeWord === `NameSpace('asset')`) {
+          suggestions.push(...assetFunctionSuggestions());
+        }
+        if (suggestions.length === 0) {
+          return { suggestions: nonTriggeredSuggestions() };
+        } else {
+          return { suggestions };
+        }
+      },
 
-nav {
-  padding: 30px;
-}
+    });
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+    this.editor = monaco.editor.create(el, {
+      value: `facilioScript`,
+      language: "facilioScript",
+    });
+  },
+  unmounted(){
+    editor.dispose();
+  }
+};
+</script>
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style></style>
