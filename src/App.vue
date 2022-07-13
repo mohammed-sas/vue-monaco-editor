@@ -29,14 +29,14 @@ export default {
     editor =monaco.languages.registerCompletionItemProvider("facilioScript", {
       triggerCharacters: ["."],
       provideCompletionItems: (model, position) => {
-        var suggestions = [];
-        var last_chars = model.getValueInRange({
+        let suggestions = [];
+        let last_chars = model.getValueInRange({
           startLineNumber: position.lineNumber,
           startColumn: 0,
           endLineNumber: position.lineNumber,
           endColumn: position.column - 1,
         });
-        var words = last_chars.replace("\t", "").split(" ");
+        let words = last_chars.replace("\t", "").split(" ");
         let activeWord = words[words.length - 1];
         if (activeWord == "Module(moduleName)") {
           suggestions.push(...moduleFunctionSuggestions());
