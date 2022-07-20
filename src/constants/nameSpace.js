@@ -703,6 +703,97 @@ export const namespace = [
           returns: "\n Returns **`Number`**",
         },
       },
+      {
+        name: "getFormattedTime",
+        parameters: ["time", "format"],
+        hoverContent: {
+          description:
+            "The getFormattedTime() takes time (in milliseconds format) and format as arguments and returns formatted date/time in the specified format.",
+          paramsType:
+            "\n @param **`Number`** - time, **`String`** - format  \n",
+          returns: "\n Returns **`String`**",
+        },
+      },
+      {
+        name: "getCurrentHour",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getCurrentHour() functions returns the current time hour",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getCurrentDate",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getCurrentDate() functions returns the current date",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getCurrentDay",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getCurrentDay() functions returns the current Day in number",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getCurrentMonth",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getCurrentMonth() functions returns the current Month",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getCurrentYear",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getCurrentYear() functions returns the current Year",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getCurrentMonthDays",
+        parameters: [],
+        hoverContent: {
+          description:
+            "Get number of days in a current month or specified month.",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "addSeconds",
+        parameters: ["time", "count"],
+        hoverContent: {
+          description:
+            "The addSecondsfunction takes a date-time or time value and count as arguments. It returns the date-time or time value after adding the specified number of seconds to it.",
+          paramsType: "\n @param **`Number`** - time, **`Number`** - count  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "addMinutes",
+        parameters: ["time", "count"],
+        hoverContent: {
+          description:
+            "The addMinutes function takes a date-time or Count and numberOfMins as arguments. It returns the date-time or time value after adding the specified number of minutes to it.",
+          paramsType: "\n @param **`Number`** - time, **`Number`** - count  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
     ],
   },
   {
