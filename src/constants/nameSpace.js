@@ -904,6 +904,195 @@ export const namespace = [
           returns: "\n Returns **`Number`**",
         },
       },
+      {
+        name: "getPreviousQuarterEndDate",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getPreviousQuarterEndDate() functions returns the previous quater month end date in milliseconds",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getLastMonthDays",
+        parameters: ["time"],
+        hoverContent: {
+          description:
+            "The getLastMonthDays() functions returns last month days count",
+          paramsType: "\n @param **`? Number`** - time   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getDaysBetween",
+        parameters: ["startTime", "endTime"],
+        hoverContent: {
+          description:
+            "The daysBetween function takes startTime and endTime as arguments and returns the number of days between them.",
+          paramsType:
+            "\n @param **`Number`** - startTime, **`Number`** - endTime   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getDateRange",
+        parameters: ["operator"],
+        hoverContent: {
+          description: `The getDateRange() functions data operator as a argument return start time and end time in milliseconds\t
+          Operators List\n
+          Today\t
+          Tomorrow\t
+          Yesterday\t
+          Current Week\t
+          Last Week\t
+          Current Month\t
+          Last Month\t
+          Last Quarter\t
+          Current Year\t
+          Last Year\t \n`,
+          paramsType: "\n @param **`Number`** - Data operators   \n",
+          returns: "\n Returns **`dateRange`**",
+        },
+      },
+      {
+        name: "minToHour",
+        parameters: ["minutes"],
+        hoverContent: {
+          description: "Convert minute to hours",
+          paramsType: "\n @param **`Number`** - minutes   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "secToHour",
+        parameters: ["seconds"],
+        hoverContent: {
+          description: "The secToHour function covert seconds to hours",
+          paramsType: "\n @param **`Number`** - seconds   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "hourToDay",
+        parameters: ["hours"],
+        hoverContent: {
+          description: "The hourToDay() function convert hours to day",
+          paramsType: "\n @param **`Number`** - hour   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getRFC3339FormatedDateString",
+        parameters: ["time"],
+        hoverContent: {
+          description:
+            "The getRFC3339FormatedDateString() takes time (in milliseconds format) and format as RFC3339 Format and returns formatted date/time.",
+          paramsType: "\n @param **`Number`** - time   \n",
+          returns: "\n Returns **`String`**",
+        },
+      },
+      {
+        name: "getMilliSecondFromRFC3339FormatedDateString",
+        parameters: ["time"],
+        hoverContent: {
+          description:
+            "The getMilliSecondFromRFC3339FormatedDateString() takes RFC3339 Format time string as input and returns milliseconds.",
+          paramsType: "\n @param **`Number`** - time   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getMilliSecondFromFormatedDateString",
+        parameters: ["time"],
+        hoverContent: {
+          description:
+            "The getMilliSecondFromFormatedDateString() takes Formatted time string as input and returns milliseconds.",
+          paramsType: "\n @param **`Number`** - time   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getPreviousMonthName",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getPreviousMonthName() functions returns the previous month name along with year.",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`String`**",
+        },
+      },
+      {
+        name: "getPreviousLastMonthName",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getPreviousLastMonthName() functions returns the last month's before month name along with year.",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`String`**",
+        },
+      },
+      {
+        name: "getMonthRange",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getMonthRange() functions returns the start and end date of the given month. If argument is passed it returns the month of the given date or else it returns the current month start and end date.",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getDayEndTime",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getDayEndTime() functions returns the day end time of the given day. If argument is passed it returns the end time of the given date or else it returns the current day end time.",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getPreviousQuarterStartDate",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getPreviousQuarterStartDate() functions returns the start date in millis format of the previous quater month. A year can be split into four quaters, that is 3 months in each quater.",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getPreviousQuarterEndDate",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getPreviousQuarterEndDate() functions returns the end date in millis format of the previous quater month. A year can be split into four quaters, that is 3 months in each quater.",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "dateRange",
+        parameters: ["StartDate", "EndDate"],
+        hoverContent: {
+          description:
+            "The dateRange() function gets startdate and enddate as argument in millisformat, and returns the object containing startdate and enddate.",
+          paramsType:
+            "\n @param **`Number`** - StartDate, **`Number`** - EndDate   \n",
+          returns: "\n Returns **`Object`**",
+        },
+      },
+      {
+        name: "getDateOperator",
+        parameters: ["operatorName"],
+        hoverContent: {
+          description:
+            "The getDateOperator() function take data operator(for operator refer getDateRange function) as a argument returns its respective Id as number..",
+          paramsType: "\n @param **`String`** - operatorName  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
     ],
   },
   {

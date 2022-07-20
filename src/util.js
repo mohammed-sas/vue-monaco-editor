@@ -77,6 +77,11 @@ export const populateSuggestions = (activeWord) => {
         ...generateFunctionSuggestion(generateFunctionsList("connectedApp")),
       ];
       break;
+    case `NameSpace("date")`:
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("date")),
+      ];
+      break;
     default:
       suggestions = [...nonTriggeredSuggestions()];
   }
