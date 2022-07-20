@@ -208,7 +208,6 @@ export default {
         if (activeWord[activeWord.length - 1] === "(") {
           activeWord = activeWord.substring(0, activeWord.length - 1);
         }
-        console.log(activeWord);
         suggestions = populateSuggestions(activeWord);
         return { suggestions };
       },
