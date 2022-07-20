@@ -33,31 +33,34 @@ export const populateSuggestions = (activeWord) => {
       suggestions = [...generateNamespaceSuggestion(namespace)];
       break;
     case `NameSpace("workorder")`:
-      let woFunctions = namespace.filter((val) => val.type === "workorder")[0]
-        .functions;
-      suggestions = [...generateFunctionSuggestion(woFunctions)];
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("workorder")),
+      ];
       break;
     case `NameSpace("asset")`:
-      let assetFunctions = namespace.filter((val) => val.type === "asset")[0]
-        .functions;
-      suggestions = [...generateFunctionSuggestion(assetFunctions)];
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("asset")),
+      ];
       break;
     case `NameSpace("default")`:
-      let defaultFunctions = namespace.filter(
-        (val) => val.type === "default"
-      )[0].functions;
-      suggestions = [...generateFunctionSuggestion(defaultFunctions)];
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("default")),
+      ];
       break;
     case `NameSpace("module")`:
-      let moduleFunctions = namespace.filter((val) => val.type === "module")[0]
-        .functions;
-      suggestions = [...generateFunctionSuggestion(moduleFunctions)];
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("module")),
+      ];
       break;
     case `NameSpace("readings")`:
-      let readingsFunctions = namespace.filter(
-        (val) => val.type === "readings"
-      )[0].functions;
-      suggestions = [...generateFunctionSuggestion(readingsFunctions)];
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("readings")),
+      ];
+      break;
+    case `NameSpace("notification")`:
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("notification")),
+      ];
       break;
     default:
       suggestions = [...nonTriggeredSuggestions()];
@@ -65,6 +68,9 @@ export const populateSuggestions = (activeWord) => {
 
   return suggestions;
 };
+
+export const generateFunctionsList = (string) =>
+  namespace.filter((value) => value.type === string)[0].functions;
 
 export const populateHoverSuggestion = (type, word) => {
   let content = namespace

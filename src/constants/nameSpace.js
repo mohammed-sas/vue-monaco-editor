@@ -475,6 +475,49 @@ export const namespace = [
   },
   {
     type: "notification",
+    functions: [
+      {
+        name: "sendMail",
+        parameters: ["emailParams"],
+        hoverContent: {
+          description:
+            "The send mail function when executed sends an email to the specified recipients.",
+          paramsType: "\n @param **`Map`** - emailParams  \n",
+          returns: "\n Returns **`Void`**",
+        },
+      },
+      {
+        name: "sendSms",
+        parameters: ["smsParams"],
+        hoverContent: {
+          description:
+            "The send sms function when executed sends an message to the specified recipient phone number.",
+          paramsType: "\n @param **`Map`** - smsParams  \n",
+          returns: "\n Returns **`Void`**",
+        },
+      },
+      {
+        name: "sendNotification",
+        parameters: ["userId", "notificationParams"],
+        hoverContent: {
+          description:
+            "This function is used to send push notifications to your users. For example, send notifications whenever a new record is added. There are two examples shown below one with mandatory parameters and other example including optional parameters.",
+          paramsType:
+            "\n @param **`Number`** - userId, **`Map`** - notificationParams  \n",
+          returns: "\n Returns **`Void`**",
+        },
+      },
+      {
+        name: "makeCall",
+        parameters: ["voiceCallParams"],
+        hoverContent: {
+          description:
+            "The makeCall function when executed sends an voice call to the specified recipient phone number.",
+          paramsType: "\n @param **`Map`** - voiceCallParams  \n",
+          returns: "\n Returns **`Void`**",
+        },
+      },
+    ],
   },
   {
     type: "math",
