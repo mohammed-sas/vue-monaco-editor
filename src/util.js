@@ -7,7 +7,7 @@ export const generateNamespaceSuggestion = (arr) =>
       return {
         label: value.type,
         kind: monaco.languages.CompletionItemKind.Field,
-        insertText: `"${value.type}"`,
+        insertText: `${value.type}`,
       };
     }
   });

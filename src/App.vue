@@ -194,7 +194,7 @@ export default {
     });
 
     editor = monaco.languages.registerCompletionItemProvider("facilioScript", {
-      triggerCharacters: [".", "("],
+      triggerCharacters: [".", '"'],
       provideCompletionItems: (model, position) => {
         let suggestions = [];
         let last_chars = model.getValueInRange({
@@ -205,6 +205,10 @@ export default {
         });
         let words = last_chars.replace("\t", "").split(" ");
         let activeWord = words[words.length - 1];
+        if (activeWord[activeWord.length - 1] === "(") {
+          activeWord = activeWord.substring(0, activeWord.length - 1);
+        }
+        console.log(activeWord);
         suggestions = populateSuggestions(activeWord);
         return { suggestions };
       },
