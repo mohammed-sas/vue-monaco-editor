@@ -82,6 +82,36 @@ export const populateSuggestions = (activeWord) => {
         ...generateFunctionSuggestion(generateFunctionsList("date")),
       ];
       break;
+    case `NameSpace("number")`:
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("number")),
+      ];
+      break;
+    case `NameSpace("resource")`:
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("resource")),
+      ];
+      break;
+    case `NameSpace("field")`:
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("field")),
+      ];
+      break;
+    case `NameSpace("file")`:
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("file")),
+      ];
+      break;
+    case `NameSpace("xml")`:
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("xml")),
+      ];
+      break;
+    case `NameSpace("control")`:
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("control")),
+      ];
+      break;
     default:
       suggestions = [...nonTriggeredSuggestions()];
   }

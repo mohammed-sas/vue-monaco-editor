@@ -1097,26 +1097,350 @@ export const namespace = [
   },
   {
     type: "number",
+    functions: [
+      {
+        name: "intValue",
+        parameters: ["numberValue"],
+        hoverContent: {
+          description:
+            "The intValue function returns integer when a decimal or whole value is given as input.",
+          paramsType: "\n @param **`Number`** - numberValue  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "longValue",
+        parameters: ["numberValue"],
+        hoverContent: {
+          description:
+            "The longValue function will cast the given number to long value.",
+          paramsType: "\n @param **`Number`** - numberValue  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "doubleValue",
+        parameters: ["numberValue"],
+        hoverContent: {
+          description:
+            "The doubleValue function will cast the given number to double value.",
+          paramsType: "\n @param **`Number`** - numberValue  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+    ],
   },
   {
     type: "resource",
+    functions: [
+      {
+        name: "getResourceName",
+        parameters: ["resourceId"],
+        hoverContent: {
+          description:
+            "The getResourceName function returns the name of the resource of the given resource id.",
+          paramsType: "\n @param **`Number`** - resourceId  \n",
+          returns: "\n Returns **`String`**",
+        },
+      },
+      {
+        name: "getVisitorLog",
+        parameters: ["visitorLogId"],
+        hoverContent: {
+          description:
+            "The getVisitorLog function returns the log of the given visitorlog id.",
+          paramsType: "\n @param **`Number`** - visitorLogId  \n",
+          returns: "\n Returns **`Object`**",
+        },
+      },
+      {
+        name: "getVisitorInvite",
+        parameters: ["visitorInviteId"],
+        hoverContent: {
+          description:
+            "The getVisitorInvite function returns the invite details of the given id.",
+          paramsType: "\n @param **`Number`** - visitorInviteId  \n",
+          returns: "\n Returns **`Object`**",
+        },
+      },
+      {
+        name: "getVendor",
+        parameters: ["vendorId"],
+        hoverContent: {
+          description:
+            "The getVendor function returns the vendor details of the given Id.",
+          paramsType: "\n @param **`Number`** - vendorId  \n",
+          returns: "\n Returns **`Object`**",
+        },
+      },
+      {
+        name: "getBaseSpace",
+        parameters: ["spaceId"],
+        hoverContent: {
+          description:
+            "The getBaseSpace function returns the space details of the given Id.",
+          paramsType: "\n @param **`Number`** - spaceId  \n",
+          returns: "\n Returns **`Object`**",
+        },
+      },
+    ],
   },
   {
     type: "field",
+    functions: [
+      {
+        name: "id",
+        parameters: ["fieldObj"],
+        hoverContent: {
+          description:
+            "The id function takes the field object as input and returns the id of the field.",
+          paramsType: "\n @param **`Object`** - fieldObj  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "asMap",
+        parameters: ["fieldObj"],
+        hoverContent: {
+          description:
+            "The id function takes the field object as input and returns the map of that field object.",
+          paramsType: "\n @param **`Object`** - fieldObj  \n",
+          returns: "\n Returns **`Map`**",
+        },
+      },
+      {
+        name: "getHoursBetween",
+        parameters: ["businessHour", "fromTime", "endTime"],
+        hoverContent: {
+          description:
+            "The getHoursBetween function takes the businessHour object, from time and end time in millis as input and returns how many hours business has been active.",
+          paramsType:
+            "\n @param **`Object`** - businessHour, **`Number`** - fromTime, **`Number`** - endTime   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getMinsBetween",
+        parameters: ["businessHour", "fromTime", "endTime"],
+        hoverContent: {
+          description:
+            "The getMinsBetween function takes the businessHour object, from time and end time in millis as input and returns how many minutes business has been active.",
+          paramsType:
+            "\n @param **`Object`** - businessHour, **`Number`** - fromTime, **`Number`** - endTime   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+    ],
   },
   {
     type: "file",
+    functions: [
+      {
+        name: "getFileContent",
+        parameters: ["fileId"],
+        hoverContent: {
+          description:
+            "The getFileContent function takes the fileId as input and returns the content of the file.",
+          paramsType: "\n @param **`Number`** - fileId  \n",
+          returns: "\n Returns **`String`**",
+        },
+      },
+      {
+        name: "putFileToRemoteFileServer",
+        parameters: [
+          "knownHost",
+          "host",
+          "userName",
+          "password",
+          "remoteDirectoryPath",
+          "StringContent",
+        ],
+        hoverContent: {
+          description:
+            "The putFileToRemoteFileServer function takes the given string as input and puts the file in remote server.",
+          paramsType:
+            "\n @param **`String`** - knownHost, **`String`** - host, **`String`** - userName, **`String`** - password, **`String`** - remoteDirectoryPath, **`String`** - stringContent   \n",
+          returns: "\n Returns **`Void`**",
+        },
+      },
+    ],
   },
   {
     type: "xml",
+    functions: [
+      {
+        name: "create",
+        parameters: ["tagName"],
+        hoverContent: {
+          description:
+            "The create function takes the string as input and returns the xml builder object, the object contains start and end tags of the string.",
+          paramsType: "\n @param **`String`** - tagName  \n",
+          returns: "\n Returns **`Object`**",
+        },
+      },
+      {
+        name: "getXMLString",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getXMLString function returns the xml string from the reference xmlObject.",
+          paramsType: "\n @param  \n",
+          returns: "\n Returns **`String`**",
+        },
+      },
+      {
+        name: "element",
+        parameters: ["elementName"],
+        hoverContent: {
+          description:
+            "The element function takes the elementName as input and returns the xmlObject, containing the reference xmlObject and the elementName inside that.",
+          paramsType: "\n @param **`String`** - elementName  \n",
+          returns: "\n Returns **`Object`**",
+        },
+      },
+      {
+        name: "text",
+        parameters: ["content"],
+        hoverContent: {
+          description:
+            "The text function takes the string content as input and returns the xmlObject containing the content given along with the elements.",
+          paramsType: "\n @param **`String`** - content  \n",
+          returns: "\n Returns **`Object`**",
+        },
+      },
+      {
+        name: "attribute",
+        parameters: ["key", "value"],
+        hoverContent: {
+          description:
+            "The attribute function takes a key and value to be set as attribute of the xml tag as input and returns the xmlObject containing the tag with attribute given.",
+          paramsType: "\n @param **`String`** - key, **`String`** - value   \n",
+          returns: "\n Returns **`Object`**",
+        },
+      },
+      {
+        name: "parent",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The parent function returns the pointer to the parent of the given element.",
+          paramsType: "\n @param  \n",
+          returns: "\n Returns **`Object`**",
+        },
+      },
+      {
+        name: "parse",
+        parameters: ["content"],
+        hoverContent: {
+          description:
+            "The parse function takes the string containing xml content as input and returns the xmlObject by converting the xmlString into xml.",
+          paramsType: "\n @param **`String`** - content   \n",
+          returns: "\n Returns **`Object`**",
+        },
+      },
+      {
+        name: "getText",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getText function returns the text in given reference xmlObject.",
+          paramsType: "\n @param  \n",
+          returns: "\n Returns **`String`**",
+        },
+      },
+      {
+        name: "getElement",
+        parameters: ["elementName"],
+        hoverContent: {
+          description:
+            "The getElement function takes the elementName as input and returns the xmlObject of that element.",
+          paramsType: "\n @param **`String`** - elementName   \n",
+          returns: "\n Returns **`Object`**",
+        },
+      },
+      {
+        name: "getAllElement",
+        parameters: ["elementName"],
+        hoverContent: {
+          description:
+            "The getAllElement function takes the elementName as input and returns the xmlObject of all the elements.",
+          paramsType: "\n @param **`String`** - elementName   \n",
+          returns: "\n Returns **`Object`**",
+        },
+      },
+      {
+        name: "getAttribute",
+        parameters: ["keyName"],
+        hoverContent: {
+          description:
+            "The getAttribute function takes key name as input and returns the value of the key in the reference xmlObject.",
+          paramsType: "\n @param **`String`** - keyName   \n",
+          returns: "\n Returns **`String`**",
+        },
+      },
+    ],
   },
   {
     type: "businessHours",
+    functions: [
+      {
+        name: "get",
+        parameters: ["businessHourId"],
+        hoverContent: {
+          description:
+            "The get function takes the businessHour Id as input and returns businessHour object for that id.",
+          paramsType: "\n @param **`Number`** - businessHourId   \n",
+          returns: "\n Returns **`Object`**",
+        },
+      },
+      {
+        name: "addHours",
+        parameters: ["businessHour", "hoursToBeAdded"],
+        hoverContent: {
+          description:
+            "The addHours function takes the businessHour object and hours to be added from current time to that as input and returns the added time in millis format.",
+          paramsType:
+            "\n @param **`Object`** - businessHour, **`Number`** - hoursToBeAdded   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "addMins",
+        parameters: ["businessHour", "minutesToBeAdded"],
+        hoverContent: {
+          description:
+            "The addMins function takes the businessHour object and minutes to be added from current time as input and returns the added time in millis format.",
+          paramsType:
+            "\n @param **`Object`** - businessHour, **`Number`** - minutesToBeAdded   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+    ],
   },
   {
     type: "control",
-  },
-  {
-    type: "criteria",
+    functions: [
+      {
+        name: "setValue",
+        parameters: ["resourceId", "fieldId", "value"],
+        hoverContent: {
+          description:
+            "The id function takes the resourceId,fieldId,value to be inserted as input and inserts the value into the respective fieldId.",
+          paramsType:
+            "\n @param **`Number`** - resourceId, **`Number`** - fieldId, **`String`** - value    \n",
+          returns: "\n Returns **`Void`**",
+        },
+      },
+      {
+        name: "setValues",
+        parameters: ["setValue"],
+        hoverContent: {
+          description:
+            "The id function takes the List of Map as input and inserts the value into the respective fieldId.",
+          paramsType: "\n @param **`List`** - setValue   \n",
+          returns: "\n Returns **`Void`**",
+        },
+      },
+    ],
   },
 ];
