@@ -38,6 +38,10 @@ export const populateSuggestions = (activeWord) => {
     let assetFunctions = namespace.filter((val) => val.type === "asset")[0]
       .functions;
     suggestions = [...generateFunctionSuggestion(assetFunctions)];
+  } else if (activeWord === `NameSpace("default")`) {
+    let defaultFunctions = namespace.filter((val) => val.type === "default")[0]
+      .functions;
+    suggestions = [...generateFunctionSuggestion(defaultFunctions)];
   } else {
     suggestions = [...nonTriggeredSuggestions()];
   }
