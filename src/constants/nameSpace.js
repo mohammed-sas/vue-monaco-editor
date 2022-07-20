@@ -521,15 +521,189 @@ export const namespace = [
   },
   {
     type: "math",
+    functions: [
+      {
+        name: "abs",
+        parameters: ["numberValue"],
+        hoverContent: {
+          description:
+            "The abs() function takes a numberValue as an argument, and returns the absolute value of that number, i.e., the number without a sign.",
+          paramsType: "\n @param **`Number`** - numberValue  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "ceil",
+        parameters: ["numberValue"],
+        hoverContent: {
+          description:
+            "The ceil() function takes a numberValue as an argument, and returns the nearest largest integer to the given decimal value.",
+          paramsType: "\n @param **`Number`** - numberValue  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "floor",
+        parameters: ["numberValue"],
+        hoverContent: {
+          description:
+            "The floor() function takes a numberValue as an argument, and returns the nearest smallest integer to the given decimal value.",
+          paramsType: "\n @param **`Number`** - numberValue  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "pow",
+        parameters: ["baseNumber", "powerNumber"],
+        hoverContent: {
+          description:
+            "The power() function takes baseNumber and powerNumber as arguments. It returns the baseNumber raised to the power of powerNumber.",
+          paramsType:
+            "\n @param **`Number`** - baseNumber, **`Number`** - powerNumber   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "cbrt",
+        parameters: ["numberValue"],
+        hoverContent: {
+          description:
+            "The cbrt() function takes a number as an argument, and returns the cube root of that number.",
+          paramsType: "\n @param **`Number`** - numberValue  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "sqrt",
+        parameters: ["numberValue"],
+        hoverContent: {
+          description:
+            "The sqrt() function takes a number as an argument, and returns the square root of that number.",
+          paramsType: "\n @param **`Number`** - numberValue  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "random",
+        parameters: ["maxLimit"],
+        hoverContent: {
+          description:
+            "The random() function generates a random number from the specified range.",
+          paramsType: "\n @param **`Number`** - maxLimit  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "setPrecision",
+        parameters: ["numberValue", "precisionValue"],
+        hoverContent: {
+          description:
+            "The setPrecision() function takes a numberValue and precisionValue as an argument, and returns the specified number of decimals.",
+          paramsType:
+            "\n @param **`Number`** - numberValue, **`Number`** - precisionValue  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "setPrecisionWithCeiling",
+        parameters: ["numberValue", "precisionValue"],
+        hoverContent: {
+          description:
+            "The setPrecisionWithCeiling() function takes a numberValue and precisionValue as an argument, and returns the specified number of decimals which will be the nearest largest integer to the given decimal value, since precision is done along with ceiling.",
+          paramsType:
+            "\n @param **`Number`** - numberValue, **`Number`** - precisionValue  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "exp",
+        parameters: ["numberValue"],
+        hoverContent: {
+          description:
+            "The exp() function takes number as an argument, which rises to the power e (e is the Euler's number whose value is 2.71828) and it returns e pow numberValue for the argument numberValue.",
+          paramsType: "\n @param **`Number`** - numberValue  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "ln",
+        parameters: ["numberValue"],
+        hoverContent: {
+          description:
+            "The ln() method computes the natural logarithm (base e) of the specified value, which takes numberValue as input and returns the natural logarithmic numberValue.",
+          paramsType: "\n @param **`Number`** - numberValue  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getLog",
+        parameters: ["numberValue"],
+        hoverContent: {
+          description:
+            "The log() function takes numberValue as an argument, returns base 10 logarithm of numberValue",
+          paramsType: "\n @param **`Number`** - numberValue  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+    ],
   },
   {
     type: "http",
+    functions: [
+      {
+        name: "get",
+        parameters: ["url", "paramsMap", "headerMap"],
+        hoverContent: {
+          description:
+            "The get function corresponds to a HTTP GET request. It is normally supported by services to perform a read operation like fetching data.",
+          paramsType:
+            "\n @param **`String`** - url, **`Map`** - paramsMap, **`Map`** - headerMap   \n",
+          returns: "\n Returns **`String`**",
+        },
+      },
+      {
+        name: "post",
+        parameters: ["url", "paramsMap", "headerMap", "body"],
+        hoverContent: {
+          description:
+            "The post url task corresponds to a HTTP POST request. It is normally supported by services to perform write operation like adding or updating data.",
+          paramsType:
+            "\n @param **`String`** - url, **`Map`** - paramsMap, **`Map`** - headerMap, **`String`** - body   \n",
+          returns: "\n Returns **`String`**",
+        },
+      },
+    ],
   },
   {
     type: "connectedApp",
+    functions: [
+      {
+        name: "getVariable",
+        parameters: ["connectedAppName", "variableName"],
+        hoverContent: {
+          description:
+            "The getVariable function takes already created connectedApp name and the variable inside the connectedAPP as input and returns the value of that variable.",
+          paramsType:
+            "\n @param **`String`** - connectedAppName, **`String`** - variableName   \n",
+          returns: "\n Returns **`String`**",
+        },
+      },
+    ],
   },
   {
     type: "date",
+    functions: [
+      {
+        name: "now",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The now() function returns the current time value in milliseconds.",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+    ],
   },
   {
     type: "number",

@@ -62,6 +62,21 @@ export const populateSuggestions = (activeWord) => {
         ...generateFunctionSuggestion(generateFunctionsList("notification")),
       ];
       break;
+    case `NameSpace("math")`:
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("math")),
+      ];
+      break;
+    case `NameSpace("http")`:
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("http")),
+      ];
+      break;
+    case `NameSpace("connectedApp")`:
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("connectedApp")),
+      ];
+      break;
     default:
       suggestions = [...nonTriggeredSuggestions()];
   }
