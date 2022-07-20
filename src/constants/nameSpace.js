@@ -1447,13 +1447,139 @@ export const namespace = [
     type: "Module",
     functions: [
       {
-        name: "setValues",
-        parameters: ["setValue"],
+        name: "add",
+        parameters: ["record"],
         hoverContent: {
           description:
-            "The id function takes the List of Map as input and inserts the value into the respective fieldId.",
-          paramsType: "\n @param **`List`** - setValue   \n",
+            "The add function creates a new record with given values in the specified module.",
+          paramsType: "\n @param **`List`** or **`Map`** - record   \n",
           returns: "\n Returns **`Void`**",
+        },
+      },
+      {
+        name: "addTemplateData",
+        parameters: ["formId", "record"],
+        hoverContent: {
+          description:
+            "The addTemplateData function creates a new record with given values in the specified module and form.",
+          paramsType:
+            "\n @param **`Number`** - formId, **`Map`** - record    \n",
+          returns: "\n Returns **`Void`**",
+        },
+      },
+      {
+        name: "update",
+        parameters: ["criteria", "updateRecord"],
+        hoverContent: {
+          description:
+            "The update record function updates a module's records which meet a given criteria.The criteria is mandatory.",
+          paramsType:
+            "\n @param **`Criteria`** - criteria, **`Map`** - updateRecord    \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "delete",
+        parameters: ["criteria"],
+        hoverContent: {
+          description:
+            "The delete record function deletes a module's records which meet a given criteria.The criteria is mandatory.",
+          paramsType: "\n @param **`Criteria`** - criteria    \n",
+          returns: "\n Returns **`Void`**",
+        },
+      },
+      {
+        name: "fetch",
+        parameters: ["criteria"],
+        hoverContent: {
+          description:
+            "The fetch record function retrieves records from a specified module, when a given criteria is met.",
+          paramsType: "\n @param **`Criteria`** - criteria    \n",
+          returns: "\n Returns **`List`**",
+        },
+      },
+      {
+        name: "export",
+        parameters: ["viewName", "criteria"],
+        hoverContent: {
+          description:
+            "The export function retrieves records from a specified module, when a given criteria is met and returns a downloadable file url.",
+          paramsType:
+            "\n @param **`String`** - viewName, **`Criteria`** - criteria    \n",
+          returns: "\n Returns **`String`**",
+        },
+      },
+      {
+        name: "exportAsFileId",
+        parameters: ["viewName", "criteria"],
+        hoverContent: {
+          description:
+            "The export function retrieves records from a specified module, when a given criteria is met and returns a fieldId.",
+          paramsType:
+            "\n @param **`String`** - viewName, **`Criteria`** - criteria    \n",
+          returns: "\n Returns **`String`**",
+        },
+      },
+      {
+        name: "asMap",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The asMap function retrieves module information as map object from a specified module.",
+          paramsType: "\n @param    \n",
+          returns: "\n Returns **`Map`**",
+        },
+      },
+      {
+        name: "getViewCriteria",
+        parameters: ["viewName"],
+        hoverContent: {
+          description:
+            "The getViewCriteria function retrieves criteria object from a specified module and view name.",
+          paramsType: "\n @param **`String`** - viewName    \n",
+          returns: "\n Returns **`Map`**",
+        },
+      },
+      {
+        name: "getId",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getId function takes module name as input and returns the id of that respective module.",
+          paramsType: "\n @param  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getAllStates",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getAllStates function takes module name as input and returns the available states for that module.The current status of each values in the module is referred to states(States refer to active, inactive, retired, expired etc).",
+          paramsType: "\n @param  \n",
+          returns: "\n Returns **`List Map`**",
+        },
+      },
+      {
+        name: "addNote",
+        parameters: ["recordId", "note"],
+        hoverContent: {
+          description:
+            "The addNote function takes module name, id of the record in that module and note to be added as input and returns the id of that respective module.",
+          paramsType:
+            "\n @param **`Number`** - recordId, **`String`** - note  \n",
+          returns: "\n Returns **`Void`**",
+        },
+      },
+      {
+        name: "addAttachments",
+        parameters: ["recordId", "fileId"],
+        hoverContent: {
+          description:
+            "The addAttachments function takes module name, id of the record in that module and id of the file to be added as input and returns the uploded file id of that respective module.",
+          paramsType:
+            "\n @param **`Number`** - recordId, **`Number`** - fileId  \n",
+          returns: "\n Returns **`Number`**",
         },
       },
     ],

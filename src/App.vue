@@ -218,12 +218,19 @@ export default {
           endLineNumber: position.lineNumber,
           endColumn: position.column,
         });
+        let suggestions;
         let wordArr = last_chars.split(".");
         let mainProp = wordArr[wordArr.length - 2];
-        let si = mainProp.indexOf("(");
-        let ei = mainProp.indexOf(")");
-        let mainPropType = mainProp.substring(si + 2, ei - 1);
-        let suggestions = populateHoverSuggestion(mainPropType, currWord);
+        let mainPropArr = mainProp.split("(");
+        if (mainPropArr[0].includes("Module")) {
+          suggestions = populateHoverSuggestion("Module", currWord);
+        } else {
+          let si = mainProp.indexOf("(");
+          let ei = mainProp.indexOf(")");
+          let mainPropType = mainProp.substring(si + 2, ei - 1);
+          suggestions = populateHoverSuggestion(mainPropType, currWord);
+        }
+
         return {
           contents: suggestions,
         };

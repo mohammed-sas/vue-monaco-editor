@@ -112,13 +112,15 @@ export const populateSuggestions = (activeWord) => {
         ...generateFunctionSuggestion(generateFunctionsList("control")),
       ];
       break;
-    case activeWord.includes("Module"):
-      suggestions = [
-        ...generateFunctionSuggestion(generateFunctionsList("control")),
-      ];
-      break;
+
     default:
-      suggestions = [...nonTriggeredSuggestions()];
+      if (activeWord.includes("Module")) {
+        suggestions = [
+          ...generateFunctionSuggestion(generateFunctionsList("Module")),
+        ];
+      } else {
+        suggestions = [...nonTriggeredSuggestions()];
+      }
   }
 
   return suggestions;
