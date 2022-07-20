@@ -1,6 +1,5 @@
 import * as monaco from "monaco-editor";
 
-
 export const readingsSuggestions = () => [
   {
     label: "getAllReadingFieldsForAssetCategory",
@@ -60,35 +59,40 @@ export const nonTriggeredSuggestions = () => [
     insertText: "new",
   },
   {
+    label: "NameSpace",
+    kind: monaco.languages.CompletionItemKind.Keyword,
+    insertText: "new NameSpace",
+  },
+  {
     label: "Module",
     kind: monaco.languages.CompletionItemKind.Function,
     insertText: "Module(${1:moduleName})",
     insertTextRules:
       monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
   },
-  {
-    label: "namespace workorder",
-    kind: monaco.languages.CompletionItemKind.Keyword,
-    insertText: `new NameSpace('workorder')`,
-  },
-  {
-    label: "namespace site",
-    kind: monaco.languages.CompletionItemKind.Keyword,
-    insertText: `new NameSpace('site')`,
-  },
-  {
-    label: "namespace readings",
-    kind: monaco.languages.CompletionItemKind.Keyword,
-    insertText: `new NameSpace('readings')`,
-  },
-  {
-    label: "namespace module",
-    kind: monaco.languages.CompletionItemKind.Keyword,
-    insertText: `new NameSpace('module')`,
-  },
-  {
-    label: "namespace asset",
-    kind: monaco.languages.CompletionItemKind.Keyword,
-    insertText: `new NameSpace('asset')`,
-  },
+  // {
+  //   label: "namespace workorder",
+  //   kind: monaco.languages.CompletionItemKind.Keyword,
+  //   insertText: `new NameSpace('workorder')`,
+  // },
+  // {
+  //   label: "namespace site",
+  //   kind: monaco.languages.CompletionItemKind.Keyword,
+  //   insertText: `new NameSpace('site')`,
+  // },
+  // {
+  //   label: "namespace readings",
+  //   kind: monaco.languages.CompletionItemKind.Keyword,
+  //   insertText: `new NameSpace('readings')`,
+  // },
+  // {
+  //   label: "namespace module",
+  //   kind: monaco.languages.CompletionItemKind.Keyword,
+  //   insertText: `new NameSpace('module')`,
+  // },
+  // {
+  //   label: "namespace asset",
+  //   kind: monaco.languages.CompletionItemKind.Keyword,
+  //   insertText: `new NameSpace('asset')`,
+  // },
 ];

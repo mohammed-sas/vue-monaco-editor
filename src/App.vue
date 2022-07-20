@@ -6,19 +6,16 @@
 
 <script>
 import * as monaco from "monaco-editor";
-import {
-  readingsSuggestions,
-  nonTriggeredSuggestions,
-  moduleFunctionSuggestions,
-  moduleMetaFunctionSuggestions,
-  assetFunctionSuggestions,
-} from "./constants";
+import { populateSuggestions, populateHoverSuggestion } from "./util";
+
 let editor;
+let hoverEditor;
 export default {
   name: "App",
   mounted() {
     const el = this.$refs.editor;
     // registering language
+
     monaco.languages.register({ id: "facilioScript" });
     monaco.languages.setMonarchTokensProvider("facilioScript", {
       tokenizer: {
@@ -41,15 +38,13 @@ export default {
           { include: "@whitespace" },
 
           // regular expression: ensure it is terminated before beginning (otherwise it is an opeator)
-          
 
           // delimiters and operators
           [/[()\[\]]/, "@brackets"],
           [/!(?=([^=]|$))/, "delimiter"],
-          
 
           // numbers
-         
+
           [/(@digits)n?/, "number"],
 
           // delimiter: after number because of .\d floats
@@ -65,7 +60,7 @@ export default {
 
         whitespace: [
           [/[ \t\r\n]+/, ""],
-       
+
           [/\/\*/, "comment", "@comment"],
           [/\/\/.*$/, "comment"],
         ],
@@ -75,12 +70,6 @@ export default {
           [/\*\//, "comment", "@pop"],
           [/[\/*]/, "comment"],
         ],
-
-      
-
-   
-    
-        
 
         string_double: [
           [/[^\\"]+/, "string"],
@@ -139,11 +128,10 @@ export default {
         "/=",
         "%=",
       ],
-   
+
       escapes:
         /\\(?:[abfnrtv\\"']|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})/,
       digits: /\d+(_+\d+)*/,
-    
     });
 
     monaco.languages.setLanguageConfiguration("facilioScript", {
@@ -206,34 +194,41 @@ export default {
     });
 
     editor = monaco.languages.registerCompletionItemProvider("facilioScript", {
-      triggerCharacters: ["."],
+      triggerCharacters: [".", "("],
       provideCompletionItems: (model, position) => {
-        var suggestions = [];
-        var last_chars = model.getValueInRange({
+        let suggestions = [];
+        let last_chars = model.getValueInRange({
           startLineNumber: position.lineNumber,
           startColumn: 0,
           endLineNumber: position.lineNumber,
           endColumn: position.column - 1,
         });
-        var words = last_chars.replace("\t", "").split(" ");
+        let words = last_chars.replace("\t", "").split(" ");
         let activeWord = words[words.length - 1];
-        if (activeWord == "Module(moduleName)") {
-          suggestions.push(...moduleFunctionSuggestions());
-        } else if (activeWord === `NameSpace('readings')`) {
-          suggestions.push(...readingsSuggestions());
-        } else if (activeWord === `NameSpace('module')`) {
-          suggestions.push(...moduleMetaFunctionSuggestions());
-        } else if (activeWord === `NameSpace('asset')`) {
-          suggestions.push(...assetFunctionSuggestions());
-        }
-        if (suggestions.length === 0) {
-          return { suggestions: nonTriggeredSuggestions() };
-        } else {
-          return { suggestions };
-        }
+        suggestions = populateSuggestions(activeWord);
+        return { suggestions };
       },
     });
-
+    hoverEditor = monaco.languages.registerHoverProvider("facilioScript", {
+      provideHover: (model, position) => {
+        let currWord = model.getWordAtPosition(position).word;
+        let last_chars = model.getValueInRange({
+          startLineNumber: position.lineNumber,
+          startColumn: 0,
+          endLineNumber: position.lineNumber,
+          endColumn: position.column,
+        });
+        let wordArr = last_chars.split(".");
+        let mainProp = wordArr[wordArr.length - 2];
+        let si = mainProp.indexOf("(");
+        let ei = mainProp.indexOf(")");
+        let mainPropType = mainProp.substring(si + 2, ei - 1);
+        let suggestions = populateHoverSuggestion(mainPropType, currWord);
+        return {
+          contents: suggestions,
+        };
+      },
+    });
     this.editor = monaco.editor.create(el, {
       value: `facilioScript`,
       language: "facilioScript",
@@ -241,6 +236,7 @@ export default {
   },
   unmounted() {
     editor.dispose();
+    hoverEditor.dispose();
   },
 };
 </script>
