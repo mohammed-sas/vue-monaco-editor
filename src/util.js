@@ -28,23 +28,41 @@ export const generateFunctionSuggestion = (arr) =>
 
 export const populateSuggestions = (activeWord) => {
   let suggestions;
-  if (activeWord === "NameSpace") {
-    suggestions = [...generateNamespaceSuggestion(namespace)];
-  } else if (activeWord === `NameSpace("workorder")`) {
-    let woFunctions = namespace.filter((val) => val.type === "workorder")[0]
-      .functions;
-    suggestions = [...generateFunctionSuggestion(woFunctions)];
-  } else if (activeWord === `NameSpace("asset")`) {
-    let assetFunctions = namespace.filter((val) => val.type === "asset")[0]
-      .functions;
-    suggestions = [...generateFunctionSuggestion(assetFunctions)];
-  } else if (activeWord === `NameSpace("default")`) {
-    let defaultFunctions = namespace.filter((val) => val.type === "default")[0]
-      .functions;
-    suggestions = [...generateFunctionSuggestion(defaultFunctions)];
-  } else {
-    suggestions = [...nonTriggeredSuggestions()];
+  switch (activeWord) {
+    case "NameSpace":
+      suggestions = [...generateNamespaceSuggestion(namespace)];
+      break;
+    case `NameSpace("workorder")`:
+      let woFunctions = namespace.filter((val) => val.type === "workorder")[0]
+        .functions;
+      suggestions = [...generateFunctionSuggestion(woFunctions)];
+      break;
+    case `NameSpace("asset")`:
+      let assetFunctions = namespace.filter((val) => val.type === "asset")[0]
+        .functions;
+      suggestions = [...generateFunctionSuggestion(assetFunctions)];
+      break;
+    case `NameSpace("default")`:
+      let defaultFunctions = namespace.filter(
+        (val) => val.type === "default"
+      )[0].functions;
+      suggestions = [...generateFunctionSuggestion(defaultFunctions)];
+      break;
+    case `NameSpace("module")`:
+      let moduleFunctions = namespace.filter((val) => val.type === "module")[0]
+        .functions;
+      suggestions = [...generateFunctionSuggestion(moduleFunctions)];
+      break;
+    case `NameSpace("readings")`:
+      let readingsFunctions = namespace.filter(
+        (val) => val.type === "readings"
+      )[0].functions;
+      suggestions = [...generateFunctionSuggestion(readingsFunctions)];
+      break;
+    default:
+      suggestions = [...nonTriggeredSuggestions()];
   }
+
   return suggestions;
 };
 

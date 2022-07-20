@@ -413,9 +413,65 @@ export const namespace = [
   },
   {
     type: "module",
+    functions: [
+      {
+        name: "getModule",
+        parameters: ["moduleName"],
+        hoverContent: {
+          description:
+            "The getModule function retrieves module object from a specified module.",
+          paramsType: "\n @param **`String`** - moduleName  \n",
+          returns: "\n Returns **`Module`**",
+        },
+      },
+      {
+        name: "getField",
+        parameters: ["fieldName", "moduleName"],
+        hoverContent: {
+          description:
+            "The getField function retrieves field object from a specified module and field.",
+          paramsType:
+            "\n @param **`String`** - fieldName, **`String`** - moduleName  \n",
+          returns: "\n Returns **`Field`**",
+        },
+      },
+      {
+        name: "getEnumFieldValue",
+        parameters: ["picklist", "moduleName", "index"],
+        hoverContent: {
+          description:
+            "The getEnumFieldValue function retrieves field value from a specified module and picklist field name and its index. Note it wil not retrieve lookup field values.",
+          paramsType:
+            "\n @param **`String`** - picklist, **`String`** - moduleName,  **`Number`** - index  \n",
+          returns: "\n Returns **`Field`**",
+        },
+      },
+    ],
   },
   {
     type: "readings",
+    functions: [
+      {
+        name: "getAllReadingFieldsForAssetCategory",
+        parameters: ["assetCategory"],
+        hoverContent: {
+          description:
+            "The getAllReadingFieldsForAssetCategory function retrieves all reading fields from a specified asset category.",
+          paramsType: "\n @param **`String`** - assetCategory  \n",
+          returns: "\n Returns **`Map`**",
+        },
+      },
+      {
+        name: "getAllReadingFieldsForSpaceCategory",
+        parameters: ["spaceCategory"],
+        hoverContent: {
+          description:
+            "The getAllReadingFieldsForSpaceCategory function retrieves all reading fields from a specified space category.",
+          paramsType: "\n @param **`String`** - spaceCategory  \n",
+          returns: "\n Returns **`Map`**",
+        },
+      },
+    ],
   },
   {
     type: "notification",
