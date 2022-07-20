@@ -794,6 +794,116 @@ export const namespace = [
           returns: "\n Returns **`Number`**",
         },
       },
+      {
+        name: "addHours",
+        parameters: ["time", "count"],
+        hoverContent: {
+          description:
+            "The addHour function takes a date-time or time value and count as arguments. It returns the date-time or time value after adding the specified number of hours to it.",
+          paramsType: "\n @param **`Number`** - time, **`Number`** - count  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "addDays",
+        parameters: ["time", "count"],
+        hoverContent: {
+          description:
+            "The addDay() function takes dateTimeValue and count as arguments. It returns the dateTimeValue after adding the specified number of days to it.",
+          paramsType: "\n @param **`Number`** - time, **`Number`** - count  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "addWeeks",
+        parameters: ["time", "count"],
+        hoverContent: {
+          description:
+            "The addWeeks() function takes dateTimeValue and count as arguments. It returns the dateTimeValue after adding the specified number of Weeks to it.",
+          paramsType: "\n @param **`Number`** - time, **`Number`** - count  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "addMonths",
+        parameters: ["time", "count"],
+        hoverContent: {
+          description:
+            "The addMonth() function takes dateTimeValue and count as arguments. It returns the dateTimeValue after adding the specified number of months to it.",
+          paramsType: "\n @param **`Number`** - time, **`Number`** - count  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "addYears",
+        parameters: ["time", "count"],
+        hoverContent: {
+          description:
+            "The addMonth() function takes dateTimeValue and count as arguments. It returns the dateTimeValue after adding the specified number of years to it.",
+          paramsType: "\n @param **`Number`** - time, **`Number`** - count  \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getDayStartTime",
+        parameters: ["time"],
+        hoverContent: {
+          description:
+            "The getDayStartTime() function returns the current day started time in milliseconds",
+          paramsType: "\n @param  **`? Number`** - time \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getMonthStartTime",
+        parameters: ["time"],
+        hoverContent: {
+          description:
+            "The getMonthStartTime() functions returns the current month started time in milliseconds",
+          paramsType: "\n @param  **`? Number`** - time \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getMonthEndTime",
+        parameters: ["time"],
+        hoverContent: {
+          description:
+            "The getMonthEndTime() functions returns the current month end time in milliseconds",
+          paramsType: "\n @param  **`? Number`** - time \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getPreviousMonthStartDate",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getPreviousMonthStartDate() functions returns the previous month started date in milliseconds",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getPreviousMonthEndDate",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getPreviousMonthStartDate() functions returns the previous month end date in milliseconds",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
+      {
+        name: "getPreviousQuarterStartDate",
+        parameters: [],
+        hoverContent: {
+          description:
+            "The getPreviousQuarterStartDate() functions returns the previous quater month start date in milliseconds",
+          paramsType: "\n @param   \n",
+          returns: "\n Returns **`Number`**",
+        },
+      },
     ],
   },
   {
