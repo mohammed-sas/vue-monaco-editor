@@ -1443,4 +1443,19 @@ export const namespace = [
       },
     ],
   },
+  {
+    type: "Module",
+    functions: [
+      {
+        name: "setValues",
+        parameters: ["setValue"],
+        hoverContent: {
+          description:
+            "The id function takes the List of Map as input and inserts the value into the respective fieldId.",
+          paramsType: "\n @param **`List`** - setValue   \n",
+          returns: "\n Returns **`Void`**",
+        },
+      },
+    ],
+  },
 ];

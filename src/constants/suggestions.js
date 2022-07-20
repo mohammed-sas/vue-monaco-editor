@@ -70,29 +70,4 @@ export const nonTriggeredSuggestions = () => [
     insertTextRules:
       monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
   },
-  // {
-  //   label: "namespace workorder",
-  //   kind: monaco.languages.CompletionItemKind.Keyword,
-  //   insertText: `new NameSpace('workorder')`,
-  // },
-  // {
-  //   label: "namespace site",
-  //   kind: monaco.languages.CompletionItemKind.Keyword,
-  //   insertText: `new NameSpace('site')`,
-  // },
-  // {
-  //   label: "namespace readings",
-  //   kind: monaco.languages.CompletionItemKind.Keyword,
-  //   insertText: `new NameSpace('readings')`,
-  // },
-  // {
-  //   label: "namespace module",
-  //   kind: monaco.languages.CompletionItemKind.Keyword,
-  //   insertText: `new NameSpace('module')`,
-  // },
-  // {
-  //   label: "namespace asset",
-  //   kind: monaco.languages.CompletionItemKind.Keyword,
-  //   insertText: `new NameSpace('asset')`,
-  // },
 ];
