@@ -114,6 +114,11 @@ export const populateSuggestions = (activeWord) => {
         ...generateFunctionSuggestion(generateFunctionsList("control")),
       ];
       break;
+    case `NameSpace("businessHours")`:
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("businessHours")),
+      ];
+      break;
 
     default:
       if (activeWord.includes("Module")) {
