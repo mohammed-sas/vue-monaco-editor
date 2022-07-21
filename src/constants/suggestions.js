@@ -30,7 +30,7 @@ export const nonTriggeredSuggestions = () => [
       monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
   },
   {
-    label: "ifelse",
+    label: "if else",
     kind: monaco.languages.CompletionItemKind.Snippet,
     insertText: ["if (${1:condition}) {", "\t$0", "} else {", "\t", "}"].join(
       "\n"
@@ -38,6 +38,30 @@ export const nonTriggeredSuggestions = () => [
     insertTextRules:
       monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
     documentation: "If-Else Statement",
+  },
+  {
+    label: "if",
+    kind: monaco.languages.CompletionItemKind.Snippet,
+    insertText: ["if (${1:condition}) {", "\t$0", "}"].join("\n"),
+    insertTextRules:
+      monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+    documentation: "If Statement",
+  },
+  {
+    label: "else if",
+    kind: monaco.languages.CompletionItemKind.Snippet,
+    insertText: ["else if (${1:condition}) {", "\t$0", "}"].join("\n"),
+    insertTextRules:
+      monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+    documentation: "Else-If Statement",
+  },
+  {
+    label: "else",
+    kind: monaco.languages.CompletionItemKind.Snippet,
+    insertText: ["else {", "\t", "}"].join("\n"),
+    insertTextRules:
+      monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+    documentation: "Else Statement",
   },
   {
     label: "for",
