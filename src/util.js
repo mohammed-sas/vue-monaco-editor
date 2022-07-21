@@ -2,15 +2,13 @@ import * as monaco from "monaco-editor";
 import { namespace } from "./constants/nameSpace";
 import { nonTriggeredSuggestions } from "./constants/suggestions";
 export const generateNamespaceSuggestion = (arr) =>
-  arr.map((value) => {
-    if (value.type !== "Module") {
-      return {
-        label: value.type,
-        kind: monaco.languages.CompletionItemKind.Field,
-        insertText: `${value.type}`,
-      };
-    }
-  });
+  arr
+    .filter((value) => value.type !== "Module")
+    .map((value) => ({
+      label: value.type,
+      kind: monaco.languages.CompletionItemKind.Field,
+      insertText: `${value.type}`,
+    }));
 
 const generateSnippet = (functionName, parameters) => {
   let paramString = "";
