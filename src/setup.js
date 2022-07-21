@@ -243,7 +243,6 @@ export const setup = (el, editor, hoverEditor) => {
   });
 
   editor = monaco.editor.create(el, {
-    value: `facilioScript`,
     language: "facilioScript",
   });
 };
