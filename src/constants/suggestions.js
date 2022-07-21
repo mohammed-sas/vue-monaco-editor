@@ -1,21 +1,5 @@
 import * as monaco from "monaco-editor";
 
-export const readingsSuggestions = () => [
-  {
-    label: "getAllReadingFieldsForAssetCategory",
-    kind: monaco.languages.CompletionItemKind.Function,
-    insertText: "getAllReadingFieldsForAssetCategory(${1:assetCategory})",
-    insertTextRules:
-      monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-  },
-  {
-    label: "getAllReadingFieldsForSpaceCategory",
-    kind: monaco.languages.CompletionItemKind.Function,
-    insertText: "getAllReadingFieldsForSpaceCategory(${1:spaceCategory})",
-    insertTextRules:
-      monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-  },
-];
 export const nonTriggeredSuggestions = () => [
   {
     label: "simpleText",

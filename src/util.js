@@ -119,6 +119,16 @@ export const populateSuggestions = (activeWord) => {
         ...generateFunctionSuggestion(generateFunctionsList("businessHours")),
       ];
       break;
+    case `NameSpace("list")`:
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("list")),
+      ];
+      break;
+    case `NameSpace("map")`:
+      suggestions = [
+        ...generateFunctionSuggestion(generateFunctionsList("map")),
+      ];
+      break;
 
     default:
       if (activeWord.includes("Module")) {

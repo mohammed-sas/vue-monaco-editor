@@ -1584,4 +1584,44 @@ export const namespace = [
       },
     ],
   },
+  {
+    type: "list",
+    functions: [
+      {
+        name: "parse",
+        parameters: ["jsonString"],
+        hoverContent: {
+          description:
+            "The parse() function takes a JSON formatted text as an argument, and returns a jsonArray list object.",
+          paramsType: "\n @param **`String`** - jsonString  \n",
+          returns: "\n Returns **`List`**",
+        },
+      },
+      {
+        name: "clear",
+        parameters: ["listVariable"],
+        hoverContent: {
+          description:
+            "The clear() function takes a list containing values as an argument, and returns an empty list.",
+          paramsType: "\n @param **`List`** - listVariable  \n",
+          returns: "\n Returns **`List`**",
+        },
+      },
+    ],
+  },
+  {
+    type: "map",
+    functions: [
+      {
+        name: "parse",
+        parameters: ["jsonString"],
+        hoverContent: {
+          description:
+            "The parse() function takes a JSON formatted text as an argument, and returns a key-value pair map object.",
+          paramsType: "\n @param **`String`** - jsonString  \n",
+          returns: "\n Returns **`Map`**",
+        },
+      },
+    ],
+  },
 ];
