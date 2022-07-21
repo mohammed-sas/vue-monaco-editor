@@ -199,7 +199,18 @@ export const setup = (el, editor, hoverEditor) => {
   });
   hoverEditor = monaco.languages.registerHoverProvider("facilioScript", {
     provideHover: (model, position) => {
-      let currWord = model.getWordAtPosition(position).word;
+      let currWord = model.getWordAtPosition(position)?.word;
+      let startColumnNum = model.getWordAtPosition(position)?.startColumn;
+      let char = model.getValueInRange({
+        startLineNumber: position.lineNumber,
+        startColumn: startColumnNum - 1,
+        endLineNumber: position.lineNumber,
+        endColumn: position.column,
+      });
+
+      if (char.charAt(0) !== "." || currWord == undefined) {
+        return;
+      }
       let last_chars = model.getValueInRange({
         startLineNumber: position.lineNumber,
         startColumn: 0,
