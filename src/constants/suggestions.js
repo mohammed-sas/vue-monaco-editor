@@ -54,14 +54,14 @@ export const nonTriggeredSuggestions = () => [
     documentation: "for loop",
   },
   {
-    label: "new",
+    label: "new ",
     kind: monaco.languages.CompletionItemKind.Keyword,
     insertText: "new",
   },
   {
     label: "NameSpace",
     kind: monaco.languages.CompletionItemKind.Keyword,
-    insertText: "new NameSpace",
+    insertText: "NameSpace",
   },
   {
     label: "Module",
@@ -69,5 +69,20 @@ export const nonTriggeredSuggestions = () => [
     insertText: "Module(${1:moduleName})",
     insertTextRules:
       monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+  },
+  {
+    label: "Connection",
+    kind: monaco.languages.CompletionItemKind.Keyword,
+    insertText: "Connection",
+  },
+  {
+    label: "new NameSpace",
+    kind: monaco.languages.CompletionItemKind.Keyword,
+    insertText: "new NameSpace",
+  },
+  {
+    label: "new Connection",
+    kind: monaco.languages.CompletionItemKind.Keyword,
+    insertText: "new Connection",
   },
 ];
