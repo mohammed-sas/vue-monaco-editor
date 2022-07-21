@@ -208,7 +208,11 @@ export const setup = (el, editor, hoverEditor) => {
       });
       let suggestions;
       let wordArr = last_chars.split(".");
-      let mainProp = wordArr[wordArr.length - 2];
+      let word =
+        wordArr[wordArr.length - 2].split(";")[1] !== undefined
+          ? wordArr[wordArr.length - 2].split(";")[1]
+          : wordArr[wordArr.length - 2];
+      let mainProp = word;
       let mainPropArr = mainProp.split("(");
       if (mainPropArr[0].includes("Module")) {
         suggestions = populateHoverSuggestion("Module", currWord);
