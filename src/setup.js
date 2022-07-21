@@ -192,6 +192,8 @@ export const setup = (el, editor, hoverEditor) => {
       let activeWord = words[words.length - 1];
       if (activeWord[activeWord.length - 1] === "(") {
         activeWord = activeWord.substring(0, activeWord.length - 1);
+      } else if (activeWord === "NameSpace") {
+        return;
       }
       suggestions = populateSuggestions(activeWord);
       return { suggestions };
